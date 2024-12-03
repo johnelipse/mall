@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form";
 
 import { LoginProps } from "@/types/types";
 import toast from "react-hot-toast";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { signIn } from "next-auth/react";
 import { Button } from "../ui/button";
 import { FaGithub, FaGoogle } from "react-icons/fa";
@@ -21,8 +21,6 @@ export default function LoginForm() {
     formState: { errors },
     reset,
   } = useForm<LoginProps>();
-  const params = useSearchParams();
-  const returnUrl = params.get("returnUrl") || "/dashboard";
   const [passErr, setPassErr] = useState("");
   const router = useRouter();
   async function onSubmit(data: LoginProps) {
@@ -47,7 +45,7 @@ export default function LoginForm() {
         setLoading(false);
         toast.success("Login Successful");
         setPassErr("");
-        router.push(returnUrl);
+        router.push("/");
       }
     } catch (error) {
       setLoading(false);
