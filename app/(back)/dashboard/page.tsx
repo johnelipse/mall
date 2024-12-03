@@ -47,20 +47,20 @@ import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Input } from "@/components/ui/input";
-export function getInitials(name: string | null | undefined): string {
-  if (name) {
-    // Split the name into an array of words
-    const nameParts = name.split(" ");
+// export function getInitials(name: string | null | undefined): string {
+//   if (name) {
+//     // Split the name into an array of words
+//     const nameParts = name.split(" ");
 
-    // Map each word to its first letter and convert to uppercase
-    const initials = nameParts.map((part) => part.charAt(0).toUpperCase());
+//     // Map each word to its first letter and convert to uppercase
+//     const initials = nameParts.map((part) => part.charAt(0).toUpperCase());
 
-    // Join the initials to form the final string
-    return initials.join("");
-  } else {
-    return "CN";
-  }
-}
+//     // Join the initials to form the final string
+//     return initials.join("");
+//   } else {
+//     return "CN";
+//   }
+// }
 export interface PatientProps {
   patientId: string;
   name: string;
@@ -616,7 +616,6 @@ export default function SidebarV1() {
                 <CardContent className="grid gap-8">
                   {patients &&
                     patients.slice(0, 5).map((patient) => {
-                      const initials = getInitials(patient.name);
                       return (
                         <div
                           key={patient.email}
@@ -624,7 +623,7 @@ export default function SidebarV1() {
                         >
                           <Avatar className="hidden h-9 w-9 sm:flex">
                             <AvatarImage src={""} alt="Avatar" />
-                            <AvatarFallback>{initials}</AvatarFallback>
+                            <AvatarFallback>CN</AvatarFallback>
                           </Avatar>
                           <div className="grid gap-1">
                             <p className="text-sm font-medium leading-none">
