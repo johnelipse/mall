@@ -67,3 +67,7 @@
     @apply bg-background text-foreground;
   }
 }
+
+.border-radius {
+  border-radius: 2% 2% 37% 39% / 10% 10% 9% 10%;
+}
