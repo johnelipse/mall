@@ -7,7 +7,7 @@ import { UserMenu } from "./user-menu";
 import Link from "next/link";
 import { Button } from "../ui/button";
 
-export function Header({ session }: { session: Session | null }) {
+export function Header({ session }: { session?: Session | null }) {
   return (
     <header className="sticky hidden md:block top-2 z-50 bg-[#064c4f] rounded-md border-b">
       <div className="container mx-auto px-4 h-16 flex justify-between items-center gap-4">
