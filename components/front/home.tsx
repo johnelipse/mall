@@ -2,7 +2,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ChevronRight } from "lucide-react";
+import { ChevronRight, Search, ShoppingCart } from "lucide-react";
 import { CategoryButton } from "./category-button";
 import { ProductCard } from "./product-card";
 
@@ -48,13 +48,13 @@ export default function Home() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen  bg-gray-50">
       <main>
         {/* Hero Section */}
         <motion.section
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          className="bg-[#004d3f] border-radius text-white mt-8"
+          className="bg-[#004d3f] hidden md:block border-radius text-white mt-8"
         >
           <div className="container mx-auto px-4 py-9 flex items-center">
             <div className="flex-1">
@@ -84,9 +84,37 @@ export default function Home() {
             </div>
           </div>
         </motion.section>
+        {/* hero-sm */}
+        <motion.section
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          className="bg-[#004d3f] block md:hidden absolute w-full top-0 left-0 right-0 border2 text-white mt-0"
+        >
+          <div className="container mx-auto px-4 py-9 justify-between gap-4 flex items-center">
+            <div className="flex-1 max-w-xl">
+              <div className="relative">
+                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
+                <input
+                  type="search"
+                  placeholder="Search for grocery items or products"
+                  className="w-full pl-10 pr-4 py-2 bg-gray-100 rounded-full text-sm focus:outline-none"
+                />
+              </div>
+            </div>
+            <motion.button
+              whileTap={{ scale: 0.95 }}
+              className="p-2 bg-white rounded-full relative"
+            >
+              <span className="bg-red-500 rounded-full w-6 h-6 -top-2 -right-2 absolute">
+                2
+              </span>
+              <ShoppingCart className="h-6 w-6" />
+            </motion.button>
+          </div>
+        </motion.section>
 
         {/* Categories */}
-        <section className="py-8 mt-8 overflow-x-auto">
+        <section className="py-8 mt-24 md:mt-8 overflow-x-auto">
           <div className="container mx-auto px-4">
             <div className="flex justify-between">
               {categories.map((category, index) => (

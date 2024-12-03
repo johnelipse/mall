@@ -11,7 +11,7 @@ export default async function FrontLayout({
 }) {
   const session = await getServerSession(authOptions);
   return (
-    <div className="px-3">
+    <div className="px-1 md:px-3">
       <MobileDock />
       <Header session={session} />
       {children}

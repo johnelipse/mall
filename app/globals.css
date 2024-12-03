@@ -71,3 +71,7 @@
 .border-radius {
   border-radius: 2% 2% 37% 39% / 10% 10% 9% 10%;
 }
+
+.border2 {
+  border-radius: 0% 0% 20% 20% / 10% 10% 27% 27%;
+}

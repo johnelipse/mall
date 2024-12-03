@@ -13,7 +13,7 @@ const filterOptions = [
 
 export function Filters() {
   return (
-    <div className="flex items-center justify-between py-4">
+    <div className="hidden md:flex items-center  justify-between py-4">
       <div className="flex gap-2 justify-between overflow-x-auto pb-2">
         {filterOptions.map((option, index) => (
           <button
